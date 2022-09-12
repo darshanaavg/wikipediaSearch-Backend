@@ -20,8 +20,26 @@ Problem statement:
   6.2.0. Since I have chosen the older version, I have used the elasticsearch curator for index rollover)
   
  Solution:
- --> This repo gives only the backend functionalities and the frontend is in the wikipediaSearch-Frontend repo
- --> Initially, create a spring boot maven project using the spring initailizr
- --> Then, establish the connection to ES using the RestHighLevelClient and MS SQL using the jdbc driver
+ --> This repo gives only the backend functionalities and the frontend is in the wikipediaSearch-Frontend repo.
+
+ --> Initially, create a spring boot maven project using the spring initailizr.
+ 
+ --> Then, establish the connection to ES using the RestHighLevelClient and MS SQL using the jdbc driver.
+ 
  --> Since the ember.js's localhost is in 4200 and the ES port is 9200, we need define the CorsFilter in main function and the CrosOrigin in the API controllers.
+ 
+ --> Design the models for ES ( wikipedia contents ) and ms sql ( data about the wikipedia )
+ 
+ --> Model - WikipediaContent
+      1. pageId - Uniquely finds the page in the wikipedia
+      2. key - the Keyword given to move the contents from wikipedia to ES
+	   3. title - Title of the wikipedia page
+	   4. content - content of the wikipedia page
+      
+  --> Model - wikipediaMetaData
+   1. title - keyword given to move the contents form wiki to ES
+   2. count - No. of wiki pages loaded from wiki to ES
+   3. success - 0/1 ( checks whether all the pages from wiki are loaded to ES. Initially will be 0, once all the pages content were moved will be updated to 1 )
+
+
  
